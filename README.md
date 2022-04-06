@@ -74,6 +74,20 @@
 
 
 
+### Section 5 Physics 2D & Prefab 2D物理及预制体
+
+- 物体碰撞关系设置 
+  - 添加 User Layer 8：Ground；
+  - 添加 User Layer 9：Environment
+  - 设置 Platform 的 Layer 为 Ground
+  - 设置其他物体的 Layer 为 Environment
+  - 在 Project Setting 中设置各个 Layer 的碰撞关系
+- prefab 预制体的使用方法
+  - 设置物体 Rigidbody 2D - Collision Detection - Continuous
+    - 连续碰撞检查
+  - 设置每个物体的质量：Rigidbody 2D - Mass - ...
+  - 在 Assets 目录中新建 Prefabs 目录，拖拽场景中的其他物体到目录中，自动生成预制体。
+
 
 
 
