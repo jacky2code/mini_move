@@ -41,5 +41,56 @@
 
 ### Section 2 Rule Tile 规则瓦片
 
-- 使用 Package Manager 下载 https://github.com/Unity-Technologies/2d-extras.git 扩展包
-- 
+- 使用 Package Manager 下载
+  - （2019.4） https://learning-cdn-public-prd.unitychina.cn/20201210/5633636e-e845-40ab-8af0-2df322849241/2d-extras-master(2019.4).zip 扩展包
+  - （2020.1）https://learning-cdn-public-prd.unitychina.cn/20201210/bf941621-493b-4588-8702-8c0e0e9c7e72/2d-extras-master(2020.1).zip
+
+
+
+### Section 3 Tilemap Collider 瓦片碰撞器
+
+- 调整 Layer 显示顺序
+  - 选择 Background 添加Sorting Layer，命名为background，并将其调整为最上面顺序（最上面显示在最后）
+  - 给物体 Background 指定 Sorting Layer为 backgournd
+
+- 给 platfrom 添加碰撞体
+  - 为 platform 添加 Tilemap Collider 2D 地图碰撞体
+  - 为 platform 添加 Composite Collider 2D 碰撞体。在附带的 Rigidbody 2D 中，由于重力为普通1，运行游戏时，platform会掉落，所以 Body Type 选择 Static。
+  - 在 Tilemap Collider 2D 中选择 Used By Composite 合并成一个整体碰撞体。
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
