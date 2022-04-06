@@ -49,6 +49,8 @@
 
 ### Section 3 Tilemap Collider 瓦片碰撞器
 
+瓦片地图碰撞器，了解 Tilemap Collider 2D 和 Composite Collider 的使用方法。
+
 - 调整 Layer 显示顺序
   - 选择 Background 添加Sorting Layer，命名为background，并将其调整为最上面顺序（最上面显示在最后）
   - 给物体 Background 指定 Sorting Layer为 backgournd
@@ -60,9 +62,15 @@
 
   
 
+### Section 4 Other Objects 其他物体
 
+创建场景中的其他物体
 
+设置 刚体 / 碰撞体 / Sorting Layer
 
+- 给其他物品添加 Rigidbody 2D
+- 给其他物品添加 Polygon Collider 2D
+  - 并修改多边形碰撞体，适配每个物品的形状；左键鼠标增加碰撞点，并拖拽贴合物体。
 
 
 
