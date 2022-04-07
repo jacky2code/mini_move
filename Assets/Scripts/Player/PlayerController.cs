@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("States Check")]
     public bool IsGround;
+    public bool Jumpping;
     public bool CanJump;
 
     private Rigidbody2D rb;
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CanJump)
         {
+            Jumpping = true;
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
             // 更改重力,增加下落效果
             rb.gravityScale = 4;
@@ -94,6 +96,7 @@ public class PlayerController : MonoBehaviour
         // 落到地面后把重力重新改为1
         if (IsGround)
         {
+            Jumpping = false;
             rb.gravityScale = 1;
         }
     }
