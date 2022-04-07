@@ -7963,6 +7963,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1665b31bb594170aedd4c27753f1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartTime: 0
+  WaitTime: 3
+  BombForce: 10
+  Radius: 1.35
+  TargetLayer:
+    serializedVersion: 2
+    m_Bits: 3584
 --- !u!1 &1309182513
 GameObject:
   m_ObjectHideFlags: 0
