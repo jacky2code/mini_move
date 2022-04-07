@@ -271,11 +271,13 @@ OnDrawGizmos 可视化的范围调整
 
   
 
-  
+## Unit 4 Animation
 
+### Section 1 Setup Animation 设置动画
 
+制作 2D Sprite 帧动画，制作多个需要的动画片段。
 
-
+- 通过窗口 Animation 创建动画，拖拽相应动画图片，设置好 Samples 为20；
 
 
 
