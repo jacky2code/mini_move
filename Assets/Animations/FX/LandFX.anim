@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Ground
+  m_Name: LandFX
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -20,11 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 110603848a3a7476e9ca09bf4915b1ea, type: 3}
+      value: {fileID: 21300000, guid: c2f1e219637874b73849734bb58ddaae, type: 3}
     - time: 0.05
-      value: {fileID: 21300000, guid: 1a2e4be1e97bb47b7a3601757ea999ca, type: 3}
+      value: {fileID: 21300000, guid: 3e2f7630ed87e48a18ba62638dfe2ea0, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: e814cd027ea044a488434267997d902a, type: 3}
+      value: {fileID: 21300000, guid: e697162fa39944ef58b015646bbdb38e, type: 3}
+    - time: 0.15
+      value: {fileID: 21300000, guid: f7fe9b601a6cc440192b5b58a46c6ff9, type: 3}
+    - time: 0.2
+      value: {fileID: 21300000, guid: 25277db82b5a446b1b1fa1058ffbddd5, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 558533d98a6494ff9ba3801dd42b9390, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 110603848a3a7476e9ca09bf4915b1ea, type: 3}
-    - {fileID: 21300000, guid: 1a2e4be1e97bb47b7a3601757ea999ca, type: 3}
-    - {fileID: 21300000, guid: e814cd027ea044a488434267997d902a, type: 3}
+    - {fileID: 21300000, guid: c2f1e219637874b73849734bb58ddaae, type: 3}
+    - {fileID: 21300000, guid: 3e2f7630ed87e48a18ba62638dfe2ea0, type: 3}
+    - {fileID: 21300000, guid: e697162fa39944ef58b015646bbdb38e, type: 3}
+    - {fileID: 21300000, guid: f7fe9b601a6cc440192b5b58a46c6ff9, type: 3}
+    - {fileID: 21300000, guid: 25277db82b5a446b1b1fa1058ffbddd5, type: 3}
+    - {fileID: 21300000, guid: 558533d98a6494ff9ba3801dd42b9390, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.15
+    m_StopTime: 0.3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -72,8 +81,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: SetLandFX
+  - time: 0.25
+    functionName: Finish
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

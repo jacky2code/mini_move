@@ -318,9 +318,27 @@ public class PlayerAnimation : MonoBehaviour
 
 
 
+### Section 3 Jump VFX 跳跃的特效
 
+制作 跳跃 / 落地 的帧动画特效，代码控制播放的时机，碰撞关系。
 
+- 创建 LandFX 特效动画，在动画最后一帧，添加Event
 
+- 创建 JumpFX 同上
+
+  ``` csharp
+  using UnityEngine;
+  
+  public class LandJumpFX : MonoBehaviour
+  {
+      public void Finish()
+      {
+          gameObject.SetActive(false);
+      }
+  }
+  ```
+
+  
 
 
 

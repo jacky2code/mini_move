@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     public bool Jumpping;
     public bool CanJump;
 
+    [Header("Land Jump FX")]
+    public GameObject JumpFX;
+    public GameObject LandFX;
+
     private Rigidbody2D rb;
 
 
@@ -80,6 +84,8 @@ public class PlayerController : MonoBehaviour
         if (CanJump)
         {
             Jumpping = true;
+            JumpFX.SetActive(true);
+            JumpFX.transform.position = transform.position + new Vector3(0, -0.45f, 0);
             rb.velocity = new Vector2(rb.velocity.x, JumpForce);
             // 更改重力,增加下落效果
             rb.gravityScale = 4;
@@ -97,8 +103,18 @@ public class PlayerController : MonoBehaviour
         if (IsGround)
         {
             Jumpping = false;
+            
             rb.gravityScale = 1;
         }
+    }
+
+    /// <summary>
+    /// animation event 在 Player_Ground 动画第一针添加
+    /// </summary>
+    public void SetLandFX()
+    {
+        LandFX.SetActive(true);
+        LandFX.transform.position = transform.position + new Vector3(0, -0.75f, 0);
     }
 
     /// <summary>
