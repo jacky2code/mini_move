@@ -340,6 +340,14 @@ public class PlayerAnimation : MonoBehaviour
 
   
 
+## Unit 5 Create Bomb
+
+### Section 1 Setup Bomb 创建炸弹
+
+创建炸弹，添加必要组件，调整碰撞关系，创建三种状态动画。
+
+- 创建炸弹对象，需要添加 Circle Collider 2D，并调整碰撞体大小。
+
 
 
 
