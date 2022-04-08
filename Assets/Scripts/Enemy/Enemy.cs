@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     private EnemyBaseState currentState;
 
+
+    public Animator Anim;
+    public int AnimState;
     [Header("Movement")]
     public float Speed = 2;
 
@@ -15,18 +18,29 @@ public class Enemy : MonoBehaviour
 
     public List<Transform> AttackList = new List<Transform>();
 
-    private PatrolState patrolState = new PatrolState();
-    private AttackState attackState = new AttackState();
-    
+    public PatrolState PatrolState = new PatrolState();
+    public AttackState AttackState = new AttackState();
+
+    public virtual void Init()
+    {
+        Anim = GetComponent<Animator>();
+    }
+
+    private void Awake()
+    {
+        Init();
+    }
+
     void Start()
     {
-        TransitionToState(patrolState);
+        TransitionToState(PatrolState);
     }
 
     
     void Update()
     {
         currentState.OnUpdate(this);
+        Anim.SetInteger("State", AnimState);
     }
 
     /// <summary>

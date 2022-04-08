@@ -6,16 +6,27 @@ public class PatrolState : EnemyBaseState
 {
     public override void EnterState(Enemy enemy)
     {
+        enemy.AnimState = 0;
+
         enemy.SwitchPoint();
     }
 
     public override void OnUpdate(Enemy enemy)
     {
-        if (Mathf.Abs(enemy.transform.position.x - enemy.TargetPoint.position.x) < 0.01f)
+        if (!enemy.Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
-            enemy.SwitchPoint();
+            enemy.AnimState = 1;
+            enemy.MoveToTarget();
         }
 
-        enemy.MoveToTarget();
+        if (Mathf.Abs(enemy.transform.position.x - enemy.TargetPoint.position.x) < 0.01f)
+        {
+            enemy.TransitionToState(enemy.PatrolState);
+        }
+
+        if (enemy.AttackList.Count > 0)
+        {
+            enemy.TransitionToState(enemy.AttackState);
+        }
     }
 }

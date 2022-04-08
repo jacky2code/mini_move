@@ -494,6 +494,12 @@ public void Attack()
 
 
 
+### Section 6 Animator States 动画状态机
+
+在 Animator 窗口当中，使用多个 Layer 来控制管理多种动画状态。并且通过代码脚本来控制动画的切换。
+
+
+
 
 
 
