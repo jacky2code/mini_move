@@ -462,7 +462,15 @@ public void Attack()
 
 ### Section 0 Enemies Assets Overview 敌人素材预览
 
-### **Section 1 Setup Basic Enemy 设置基本敌人** 
+
+
+### Section 1 Setup Basic Enemy 设置基本敌人
 
 创建基本敌人 Cucumber 黄瓜怪。设置帧动画。添加 碰撞体 / 刚体。设置碰撞图层，调整碰撞关系。
+
+
+
+### Section 2 More Elements 更多的组件
+
+设置巡逻点。添加设置攻击检测范围。调整 Check Area 碰撞图层和关系。
 
