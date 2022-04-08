@@ -474,3 +474,35 @@ public void Attack()
 
 设置巡逻点。添加设置攻击检测范围。调整 Check Area 碰撞图层和关系。
 
+
+
+### Section 3 Basic Methods 基本函数方法
+
+创建 Enemy 代码中的基本函数方法。实现 巡逻 / 移动  / 反转 / 添加攻击列表的方法。学习 List<> 的使用。
+
+
+
+### Section 4 Inheritance 继承
+
+创建单独的 Cucumber 代码并继承 Enemy 基类。学习 virtual 函数方法如何在子类当中 override 重写。调整代码和参数。
+
+
+
+### Section 5 Finite States Machine 有限状态机
+
+了解 FSM 状态机的概念 / 抽象类概念 / 抽象函数方法。用抽象类继承创建2个敌人AI状态：PatrolState / AttackState。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

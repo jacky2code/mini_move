@@ -7834,7 +7834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233128479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.58, y: 0, z: 0}
+  m_LocalPosition: {x: 2.09, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526995516}
@@ -8176,7 +8176,7 @@ Transform:
   m_GameObject: {fileID: 1571893755}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 1559775201}
   m_Father: {fileID: 1526995516}
@@ -8238,9 +8238,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1571893755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44658bb4954cc4ef9918a3fd2ce024ac, type: 3}
+  m_Script: {fileID: 11500000, guid: bdb557af67b73465ea6bc83f335d9285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 2
+  PointA: {fileID: 1826544463}
+  PointB: {fileID: 1233128480}
+  TargetPoint: {fileID: 0}
+  AttackList: []
+  Health: 0
 --- !u!1 &1595710817
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,7 +8346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826544462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6799998, y: 0, z: 0}
+  m_LocalPosition: {x: -1.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1526995516}
@@ -8575,7 +8581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078448649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.087, z: 0}
+  m_LocalPosition: {x: 2.45, y: -4.087, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2045981550}
