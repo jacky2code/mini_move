@@ -433,5 +433,30 @@ public class Bomb : MonoBehaviour
 
 
 
+### Section 3 Player Attack 玩家攻击
+
+让 Player 能够控制释放 Bomb 的 Prefab。设置CD时间。
+
+``` csharp
+[Header("Attack Setting")]
+public GameObject BombPrefab;
+// 下一次攻击时间
+public float NextAttack = 0;
+// 攻击时间间隔
+public float AttackRate = 2;
+
+
+public void Attack()
+{
+    if (Time.time > NextAttack)
+    {
+        Instantiate(BombPrefab, transform.position, BombPrefab.transform.rotation);
+        NextAttack = Time.time + AttackRate;
+    }         
+}
+```
+
+
+
 
 

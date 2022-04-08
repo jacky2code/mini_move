@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour
     public GameObject JumpFX;
     public GameObject LandFX;
 
+    [Header("Attack Setting")]
+    public GameObject BombPrefab;
+    // 下一次攻击时间
+    public float NextAttack = 0;
+    // 攻击时间间隔
+    public float AttackRate = 2;
+
     private Rigidbody2D rb;
 
 
@@ -55,6 +62,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGround)
         {
             CanJump = true;
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Attack();
         }
     }
 
@@ -91,6 +102,15 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 4;
             CanJump = false;
         }
+    }
+
+    public void Attack()
+    {
+        if (Time.time > NextAttack)
+        {
+            Instantiate(BombPrefab, transform.position, BombPrefab.transform.rotation);
+            NextAttack = Time.time + AttackRate;
+        }         
     }
 
     /// <summary>
