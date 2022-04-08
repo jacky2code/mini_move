@@ -1,4 +1,4 @@
-# MiMi Move
+# MiNi Move
 
 2D 平台跳跃类游戏，使用 unity 开发。
 
@@ -460,7 +460,9 @@ public void Attack()
 
 ## Unit 6 Create Enemy Scripts & AI
 
-### Section 1 Enemies Assets Overview 敌人素材预览
+### Section 0 Enemies Assets Overview 敌人素材预览
 
+### **Section 1 Setup Basic Enemy 设置基本敌人** 
 
+创建基本敌人 Cucumber 黄瓜怪。设置帧动画。添加 碰撞体 / 刚体。设置碰撞图层，调整碰撞关系。
 
