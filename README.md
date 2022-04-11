@@ -630,6 +630,42 @@ public class AttackState : EnemyBaseState
 
 
 
+### Section 8 Attack Action 攻击方式
+
+创建攻击有关的变量，实现 AttackAction 和 SkillAction 两个函数方法。判断攻击距离与攻击间隔同时满足条件的情况，采取相应的行动。
+
+``` csharp
+/// <summary>
+/// 普通攻击
+/// </summary>
+public virtual void AttackAction()
+{
+    if (Vector2.Distance(transform.position, TargetPoint.position) < AttackRange)
+    {
+        if (Time.time > nextAttack)
+        {
+            Debug.Log("进行攻击！");
+            nextAttack = Time.time + AttackRate;
+        }
+    }
+}
+
+/// <summary>
+/// 技能攻击
+/// </summary>
+public virtual void SkillAction()
+{
+    if (Vector2.Distance(transform.position, TargetPoint.position) < skillRange)
+    {
+        if (Time.time > nextAttack)
+        {
+            Debug.Log("这是炸弹，释放炸弹技能！");
+            nextAttack = Time.time + AttackRate;
+        }
+    }
+}
+```
+
 
 
 

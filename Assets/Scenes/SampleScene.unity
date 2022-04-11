@@ -8247,6 +8247,9 @@ MonoBehaviour:
   PointA: {fileID: 1826544463}
   PointB: {fileID: 1233128480}
   TargetPoint: {fileID: 0}
+  AttackRate: 2
+  AttackRange: 1
+  skillRange: 1.5
   AttackList: []
 --- !u!1 &1595710817
 GameObject:

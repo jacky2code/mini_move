@@ -11,10 +11,15 @@ public class Enemy : MonoBehaviour
     public int AnimState;
     [Header("Movement")]
     public float Speed = 2;
-
     public Transform PointA, PointB;
-
     public Transform TargetPoint;
+
+    [Header("Attack Setting")]
+    // 攻击间隔时间
+    public float AttackRate;
+    private float nextAttack = 0;
+    // 普通攻击距离和技能攻击距离
+    public float AttackRange, skillRange;
 
     public List<Transform> AttackList = new List<Transform>();
 
@@ -60,19 +65,33 @@ public class Enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// 攻击
+    /// 普通攻击
     /// </summary>
     public virtual void AttackAction()
     {
-        Debug.Log("进行攻击！");
+        if (Vector2.Distance(transform.position, TargetPoint.position) < AttackRange)
+        {
+            if (Time.time > nextAttack)
+            {
+                Debug.Log("进行攻击！");
+                nextAttack = Time.time + AttackRate;
+            }
+        }
     }
 
     /// <summary>
-    /// 技能
+    /// 技能攻击
     /// </summary>
     public virtual void SkillAction()
     {
-        Debug.Log("这是炸弹，释放炸弹技能！");
+        if (Vector2.Distance(transform.position, TargetPoint.position) < skillRange)
+        {
+            if (Time.time > nextAttack)
+            {
+                Debug.Log("这是炸弹，释放炸弹技能！");
+                nextAttack = Time.time + AttackRate;
+            }
+        }
     }
 
     /// <summary>
