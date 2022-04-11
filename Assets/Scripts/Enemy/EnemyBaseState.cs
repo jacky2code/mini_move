@@ -1,4 +1,7 @@
-﻿public abstract class EnemyBaseState
+﻿/// <summary>
+/// 抽象类 EnemyBaseState
+/// </summary>
+public abstract class EnemyBaseState
 {
     /// <summary>
     /// 进入状态

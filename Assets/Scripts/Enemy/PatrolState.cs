@@ -13,6 +13,7 @@ public class PatrolState : EnemyBaseState
 
     public override void OnUpdate(Enemy enemy)
     {
+        // 获取当前动画状态，如果不是 Idle 动画
         if (!enemy.Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             enemy.AnimState = 1;

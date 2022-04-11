@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         currentState = state;
         currentState.EnterState(this);
     }
-
+    // 移动到目标
     public void MoveToTarget()
     {
         transform.position = Vector2.MoveTowards(transform.position, TargetPoint.position, Speed * Time.deltaTime);
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void AttackAction()
     {
-
+        Debug.Log("进行攻击！");
     }
 
     /// <summary>
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void SkillAction()
     {
-
+        Debug.Log("这是炸弹，释放炸弹技能！");
     }
 
     /// <summary>
