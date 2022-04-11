@@ -668,6 +668,32 @@ public virtual void SkillAction()
 
 
 
+### Section 9 Hit Point 打击点
+
+创建攻击点 HitPoint 录制动画实现攻击 Player 的方法。创建 HitPoint 代码脚本。
+
+``` csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HitPoint : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Player get hurt !");
+        }
+
+        if (other.CompareTag("Bomb"))
+        {
+
+        }
+    }
+}
+```
+
 
 
 

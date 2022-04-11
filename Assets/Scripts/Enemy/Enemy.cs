@@ -73,7 +73,9 @@ public class Enemy : MonoBehaviour
         {
             if (Time.time > nextAttack)
             {
-                Debug.Log("进行攻击！");
+                // 播放攻击动画
+                Anim.SetTrigger("Attack");
+                Debug.Log("普通攻击！！！");
                 nextAttack = Time.time + AttackRate;
             }
         }
@@ -88,7 +90,9 @@ public class Enemy : MonoBehaviour
         {
             if (Time.time > nextAttack)
             {
-                Debug.Log("这是炸弹，释放炸弹技能！");
+                // 播放技能动画
+                Anim.SetTrigger("Skill");
+                Debug.Log("这是炸弹，释放技能！");
                 nextAttack = Time.time + AttackRate;
             }
         }
