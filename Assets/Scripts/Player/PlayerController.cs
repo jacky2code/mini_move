@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    [Header("Player State")]
+    public float Health;
+    public bool IsDead;
     // 速度
     public float Speed;
     // 跳跃力
     public float JumpForce;
+    public Animator Anim;
 
     [Header("Ground Check")]
     // 检测点
@@ -40,15 +44,26 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        Anim.SetBool("Dead", IsDead);
+        if (IsDead)
+        {
+            return;
+        }
         CheckInput();
     }
 
     public void FixedUpdate() 
     {
+        if (IsDead)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         PhysicsCheck();
         Movement();
         Jump();
@@ -145,4 +160,18 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(GroundCheck.position, CheckRadius);
     }
 
+    /// <summary>
+    /// 受伤害
+    /// </summary>
+    /// <param name="damage"></param>
+    public void GetHit(float damage)
+    {
+        Health = Health - damage;
+        if (Health < 1)
+        {
+            Health = 0;
+            IsDead = true;
+        }
+        Anim.SetTrigger("Hit");
+    }
 }

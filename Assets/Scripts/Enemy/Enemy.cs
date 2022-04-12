@@ -9,6 +9,11 @@ public class Enemy : MonoBehaviour
 
     public Animator Anim;
     public int AnimState;
+
+    [Header("Base State")]
+    public float Health;
+    public bool IsDead;
+
     [Header("Movement")]
     public float Speed = 2;
     public Transform PointA, PointB;
@@ -44,6 +49,11 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
+        Anim.SetBool("Dead", IsDead);
+        if (IsDead)
+        {
+            return;
+        }
         currentState.OnUpdate(this);
         Anim.SetInteger("State", AnimState);
     }

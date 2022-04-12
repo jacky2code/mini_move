@@ -8163,7 +8163,7 @@ GameObject:
   - component: {fileID: 1571893761}
   m_Layer: 10
   m_Name: SpriteSetting
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8314,6 +8314,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
   AnimState: 0
+  Health: 3
+  IsDead: 0
   Speed: 2
   PointA: {fileID: 1826544463}
   PointB: {fileID: 1233128480}
@@ -8579,8 +8581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12515dd7997704e42bda7dacb49ec7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 5
+  IsDead: 0
   Speed: 5
   JumpForce: 15
+  Anim: {fileID: 0}
   GroundCheck: {fileID: 1595710818}
   CheckRadius: 0.37
   GroundLayer:

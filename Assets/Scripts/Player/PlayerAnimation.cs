@@ -19,10 +19,10 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         // 获取 Player 移动速度，并取绝对值，传递给 speed 执行 run 动画 
-        anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
-        anim.SetFloat("velocityY", rb.velocity.y);
-        anim.SetBool("jump", playerCrl.Jumpping);
-        anim.SetBool("ground", playerCrl.IsGround);
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetFloat("VelocityY", rb.velocity.y);
+        anim.SetBool("Jump", playerCrl.Jumpping);
+        anim.SetBool("Ground", playerCrl.IsGround);
         
     }
 }

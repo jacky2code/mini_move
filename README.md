@@ -721,6 +721,43 @@ public void TurnOn()
 
 
 
+### Section 11 Interface：IDamageable 创建接口
+
+学习 Interface 接口的概念，如何通过创建 1 个接口来实现访问所有继承这个接口的代码脚本。轻松实现炸弹爆炸让周围的人物都有受到伤害的效果。
+
+``` csharp
+public interface IDamageable
+{
+    /// <summary>
+    /// 受伤害
+    /// </summary>
+    /// <param name="damage"></param>
+    void GetHit(float damage);
+}
+```
+
+``` csharp
+public class Cucumber : Enemy, IDamageable
+{
+    public void GetHit(float damage)
+    {
+        Health = Health - damage;
+        if (Health < 1)
+        {
+            Health = 0;
+            IsDead = true;
+        }
+        Anim.SetTrigger("Hit");
+    }
+
+    // Animation Event
+    public void SetOffBomb()
+    {
+        TargetPoint.GetComponent<Bomb>()?.TurnOff();
+    }
+}
+```
+
 
 
 
