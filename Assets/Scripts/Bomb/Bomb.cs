@@ -27,11 +27,15 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
-        if (Time.time > StartTime + WaitTime)
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Bomb_Off"))
         {
-            // 通过名字播放动画
-            animator.Play("Bomb_Explotion");
+            if (Time.time > StartTime + WaitTime)
+            {
+                // 通过名字播放动画
+                animator.Play("Bomb_Explotion");
+            }
         }
+        
         
     }
 
@@ -62,6 +66,12 @@ public class Bomb : MonoBehaviour
             Vector3 pos = transform.position - item.transform.position;
             // 给物体添加(反方向 + 向上)的爆炸威力和冲击力
             item.GetComponent<Rigidbody2D>().AddForce((-pos + Vector3.up) * BombForce, ForceMode2D.Impulse);
+
+            // 点燃周围熄灭的炸弹
+            if (item.CompareTag("Bomb") && item.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Bomb_Off"))
+            {
+                item.GetComponent<Bomb>().TurnOn();
+            }
         }
     }
 
@@ -71,5 +81,22 @@ public class Bomb : MonoBehaviour
     public void DestroyThis()
     {
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// 熄灭炸弹
+    /// </summary>
+    public void TurnOff()
+    {
+        animator.Play("Bomb_Off");
+        // 更改炸弹图层
+        gameObject.layer = LayerMask.NameToLayer("NPC");
+    }
+
+    public void TurnOn()
+    {
+        StartTime = Time.time;
+        animator.Play("Bomb_On");
+        gameObject.layer = LayerMask.NameToLayer("Bomb");
     }
 }

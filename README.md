@@ -696,6 +696,31 @@ public class HitPoint : MonoBehaviour
 
 
 
+### Section 10 Skill Action 技能攻击方式
+
+通过实际创建 Cucumber 的吹灭炸弹特殊技能，了解当敌人的攻击目标是炸弹的时候，如何采取特殊技能效果。
+
+``` csharp
+/// <summary>
+/// 熄灭炸弹
+/// </summary>
+public void TurnOff()
+{
+    animator.Play("Bomb_Off");
+    // 更改炸弹图层
+    gameObject.layer = LayerMask.NameToLayer("NPC");
+}
+
+public void TurnOn()
+{
+    StartTime = Time.time;
+    animator.Play("Bomb_On");
+    gameObject.layer = LayerMask.NameToLayer("Bomb");
+}
+```
+
+
+
 
 
 

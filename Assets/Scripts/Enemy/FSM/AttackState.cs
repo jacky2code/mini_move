@@ -31,6 +31,10 @@ public class AttackState : EnemyBaseState
                 }
             }
         }
+        if (enemy.AttackList.Count == 1)
+        {
+            enemy.TargetPoint = enemy.AttackList[0];
+        }
 
         // 判断敌人类型：Player / Bomb
         if (enemy.TargetPoint.CompareTag("Player"))
