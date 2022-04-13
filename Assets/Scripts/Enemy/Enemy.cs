@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private EnemyBaseState currentState;
-
+    private GameObject warningSign;
 
     public Animator Anim;
     public int AnimState;
@@ -34,6 +34,8 @@ public class Enemy : MonoBehaviour
     public virtual void Init()
     {
         Anim = GetComponent<Animator>();
+        // 获取第一个子物体
+        warningSign = transform.GetChild(0).gameObject;
     }
 
     private void Awake()
@@ -152,9 +154,25 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (AttackList.Contains(collision.transform))
-        {
-            AttackList.Remove(collision.transform);
-        }
+        AttackList.Remove(collision.transform);        
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        StartCoroutine(OnSign());
+    }
+
+    /// <summary>
+    /// 用协程的方式打开和关闭，敌人角色遇险警告。
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator OnSign()
+    {
+        warningSign.SetActive(true);
+        yield return new WaitForSeconds(
+            // 获取第 0 个Layer的第 0 个动画片段时长
+            warningSign.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length
+            );
+        warningSign.SetActive(false);
     }
 }

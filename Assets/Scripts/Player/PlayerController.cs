@@ -166,12 +166,17 @@ public class PlayerController : MonoBehaviour, IDamageable
     /// <param name="damage"></param>
     public void GetHit(float damage)
     {
-        Health = Health - damage;
-        if (Health < 1)
+        // 受伤短暂无敌
+        if (!Anim.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit"))
         {
-            Health = 0;
-            IsDead = true;
+            Health = Health - damage;
+            if (Health < 1)
+            {
+                Health = 0;
+                IsDead = true;
+            }
+            Anim.SetTrigger("Hit");
         }
-        Anim.SetTrigger("Hit");
+        
     }
 }

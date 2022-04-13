@@ -760,5 +760,34 @@ public class Cucumber : Enemy, IDamageable
 
 
 
+### Section 12 Player Get Hit 玩家获得伤害
+
+通过 IDamageable 接口实现玩家受伤，并且受伤动画播放期间短暂无敌。创建敌人警示标示，学习 协程 的使用方法
+
+- 协程函数
+
+  ``` csharp
+  public void OnTriggerEnter2D(Collider2D collision)
+  {
+      StartCoroutine(OnSign());
+  }
+  
+  /// <summary>
+  /// 用协程的方式打开和关闭，敌人角色遇险警告。
+  /// </summary>
+  /// <returns></returns>
+  IEnumerator OnSign()
+  {
+      warningSign.SetActive(true);
+      yield return new WaitForSeconds(
+          // 获取第 0 个Layer的第 0 个动画片段时长
+          warningSign.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length
+          );
+      warningSign.SetActive(false);
+  }
+  ```
+
+  
+
 
 
