@@ -159,7 +159,10 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(OnSign());
+        if (!IsDead)
+        {
+            StartCoroutine(OnSign());
+        }
     }
 
     /// <summary>

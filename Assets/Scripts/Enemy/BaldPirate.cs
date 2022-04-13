@@ -1,7 +1,7 @@
 ﻿/// <summary>
-/// 黄瓜怪物
+/// 光头海盗
 /// </summary>
-public class Cucumber : Enemy, IDamageable
+public class BaldPirate : Enemy, IDamageable
 {
     public void GetHit(float damage)
     {

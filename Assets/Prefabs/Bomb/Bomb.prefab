@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartTime: 0
-  WaitTime: 2
+  WaitTime: 3
   BombForce: 30
   Radius: 1.35
   TargetLayer:
