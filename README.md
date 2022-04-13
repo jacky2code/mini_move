@@ -771,7 +771,6 @@ public class Cucumber : Enemy, IDamageable
   {
       StartCoroutine(OnSign());
   }
-  
   /// <summary>
   /// 用协程的方式打开和关闭，敌人角色遇险警告。
   /// </summary>
