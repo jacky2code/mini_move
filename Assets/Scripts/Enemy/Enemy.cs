@@ -8,11 +8,12 @@ public class Enemy : MonoBehaviour
     private GameObject warningSign;
 
     public Animator Anim;
-    public int AnimState;
+    public int AnimState = 0;
 
     [Header("Base State")]
-    public float Health;
-    public bool IsDead;
+    public float Health = 3;
+    public bool IsDead = false;
+    public bool HasBomb = false;
 
     [Header("Movement")]
     public float Speed = 2;
@@ -21,10 +22,11 @@ public class Enemy : MonoBehaviour
 
     [Header("Attack Setting")]
     // 攻击间隔时间
-    public float AttackRate;
+    public float AttackRate = 2;
     private float nextAttack = 0;
     // 普通攻击距离和技能攻击距离
-    public float AttackRange, skillRange;
+    public float AttackRange = 1;
+    public float SkillRange = 1.5f;
 
     public List<Transform> AttackList = new List<Transform>();
 
@@ -98,7 +100,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void SkillAction()
     {
-        if (Vector2.Distance(transform.position, TargetPoint.position) < skillRange)
+        if (Vector2.Distance(transform.position, TargetPoint.position) < SkillRange)
         {
             if (Time.time > nextAttack)
             {
@@ -146,7 +148,7 @@ public class Enemy : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!AttackList.Contains(collision.transform))
+        if (!AttackList.Contains(collision.transform) && !HasBomb)
         {
             AttackList.Add(collision.transform);
         }

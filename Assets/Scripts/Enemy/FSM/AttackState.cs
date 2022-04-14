@@ -13,6 +13,10 @@ public class AttackState : EnemyBaseState
 
     public override void OnUpdate(Enemy enemy)
     {
+        if (enemy.HasBomb)
+        {
+            return;
+        }
         // 如果没有敌人了，切换到巡逻状态
         if (enemy.AttackList.Count == 0)
         {
