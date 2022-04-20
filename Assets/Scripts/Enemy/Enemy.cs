@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
     }
 
     
-    void Update()
+    public virtual void Update()
     {
         Anim.SetBool("Dead", IsDead);
         if (IsDead)
