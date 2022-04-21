@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private Rigidbody2D rb;
 
+    private bool isHurt;
+
 
     void Start()
     {
@@ -54,6 +56,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             return;
         }
+        // 判断是否正在播放受伤动画
+        isHurt = Anim.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit");
         CheckInput();
     }
 
@@ -65,8 +69,12 @@ public class PlayerController : MonoBehaviour, IDamageable
             return;
         }
         PhysicsCheck();
-        Movement();
-        Jump();
+        // 非受伤状态下才可以移动和跳跃
+        if (!isHurt)
+        {
+            Movement();// input 会覆盖 Rigidbody 的速度，所以用 isHurt 来锁定就可以让 Player 被击飞
+            Jump();
+        }
     }
 
     /// <summary>
