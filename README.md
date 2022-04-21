@@ -2,7 +2,7 @@
 
 2D 平台跳跃类游戏，使用 unity 开发。
 
-
+![20220421110816](https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421110816.png)
 
 ## Unit 1 Install & Assets
 
@@ -97,10 +97,17 @@
 设置 Player 的必要组件，调整各个组件的参数。设置碰撞体大小和碰撞关系。
 
 - 调整 Player-Bomb 图片，按第一章节方式调整 32 像素
+
+  ![image-20220421110237218](https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421110250.png)
+
 - 拖拽一张图片到场景中 命名为 Player，添加刚体和碰撞体
+
 - 调整 Mass 为 5；锁定 Z 轴，Constraints- Freeze Rotation - Z 打钩
+
 - 调整 Player 的碰撞体大小适配脚部宽度大小
+
 - 为 Player 添加 Layer 和 Sorting Layer 为 NPC
+
 - 在 Project Setting 中设置 NPC 和 Environment 不碰撞
 
 
@@ -992,6 +999,60 @@ public class Captain : Enemy, IDamageable
         else
         {
             spriteRenderer.flipX = false;
+        }
+    }
+}
+```
+
+
+
+### Section 4 Whale 鲸鱼
+
+添加 Animation Event 实现吞灭炸弹，趣味添加吞下炸弹体积变大。
+
+``` csharp
+using UnityEngine;
+
+/// <summary>
+/// 巨鲸
+/// 技能：吃炸弹
+/// </summary>
+public class Whale : Enemy, IDamageable
+{
+    public float Scale;
+    private Vector3 originalScale;
+
+    public override void Init()
+    {
+        base.Init();
+        originalScale = transform.localScale;
+    }
+
+    public void GetHit(float damage)
+    {
+        Health = Health - damage;
+        if (Health < 1)
+        {
+            Health = 0;
+            IsDead = true;
+        }
+        Anim.SetTrigger("Hit");
+    }
+
+    /// <summary>
+    /// Skill Animation Event
+    /// 吞炸弹
+    /// </summary>
+    public void SwallowBomb()
+    {
+        // 熄灭
+        TargetPoint.GetComponent<Bomb>().TurnOff();
+        TargetPoint.gameObject.SetActive(false);
+
+        if (transform.localScale.y < (originalScale.y * 2.0))
+        {
+            // 鲸鱼变大
+            transform.localScale *= Scale;
         }
     }
 }

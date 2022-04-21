@@ -14,7 +14,7 @@ public class Cucumber : Enemy, IDamageable
         Anim.SetTrigger("Hit");
     }
 
-    // Animation Event
+    // Skill Animation Event
     public void SetOffBomb()
     {
         TargetPoint.GetComponent<Bomb>()?.TurnOff();

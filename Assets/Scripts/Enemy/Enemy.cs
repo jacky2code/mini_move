@@ -148,7 +148,7 @@ public class Enemy : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (!AttackList.Contains(collision.transform) && !HasBomb)
+        if (!AttackList.Contains(collision.transform) && !HasBomb && !IsDead)
         {
             AttackList.Add(collision.transform);
         }
