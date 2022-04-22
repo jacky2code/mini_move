@@ -1097,3 +1097,10 @@ public class UIManager : MonoBehaviour
 }
 ```
 
+
+
+### Section 3 Pause Menu 暂停菜单
+
+创建暂停菜单，Button 组件添加方法，实现 暂停 / 恢复游戏
+
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/22/20220422131523.png" alt="image-20220422131438708" align="center" style="width:500px" />
