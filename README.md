@@ -1067,3 +1067,33 @@ public class Whale : Enemy, IDamageable
 UGUI 使用方法，添加 Player Health Bar 左上角对齐，并设置 Canvas 的自动缩放。
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/22/20220422093756.png" alt="image-20220422093500768" align="center" style="width:500px"/>
+
+
+
+### Section 2 Update Health 更新生命值
+
+创建 UIManager 单例模式。获取玩家血量，并实时更新 UI 血量显示。
+
+单例模式：
+
+``` csharp
+using UnityEngine;
+
+public class UIManager : MonoBehaviour
+{
+    public static UIManager Instance;
+
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+}
+```
+

@@ -54,6 +54,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         Anim.SetBool("Dead", IsDead);
         if (IsDead)
         {
+            //gameObject.SetActive(false);
+            //Destroy(gameObject);
             return;
         }
         // 判断是否正在播放受伤动画
@@ -175,7 +177,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void GetHit(float damage)
     {
         // 受伤短暂无敌
-        if (!Anim.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit"))
+        if (!Anim.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit") && !IsDead)
         {
             Health = Health - damage;
             if (Health < 1)
@@ -184,6 +186,8 @@ public class PlayerController : MonoBehaviour, IDamageable
                 IsDead = true;
             }
             Anim.SetTrigger("Hit");
+
+            UIManager.Instance.UpdateHealth(Health);
         }
         
     }

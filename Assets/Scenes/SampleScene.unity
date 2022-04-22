@@ -4985,6 +4985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94804b22a915e47aabe8d475e87c2b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 1600538772}
 --- !u!4 &661679969
 Transform:
   m_ObjectHideFlags: 0
@@ -8850,7 +8851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12515dd7997704e42bda7dacb49ec7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 5
+  Health: 3
   IsDead: 0
   Speed: 5
   JumpForce: 15

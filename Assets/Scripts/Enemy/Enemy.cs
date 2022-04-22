@@ -83,7 +83,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void AttackAction()
     {
-        if (Vector2.Distance(transform.position, TargetPoint.position) < AttackRange)
+        if (Vector2.Distance(transform.position, TargetPoint.position) < AttackRange
+            && (!TargetPoint.GetComponent<PlayerController>().IsDead))
         {
             if (Time.time > nextAttack)
             {
@@ -100,7 +101,8 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void SkillAction()
     {
-        if (Vector2.Distance(transform.position, TargetPoint.position) < SkillRange)
+        if (Vector2.Distance(transform.position, TargetPoint.position) < SkillRange
+            && (!TargetPoint.GetComponent<PlayerController>().IsDead))
         {
             if (Time.time > nextAttack)
             {
