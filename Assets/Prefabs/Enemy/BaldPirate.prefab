@@ -200,13 +200,14 @@ MonoBehaviour:
   AnimState: 0
   Health: 3
   IsDead: 0
+  HasBomb: 0
   Speed: 2
   PointA: {fileID: 7638733898891645330}
   PointB: {fileID: 7638733897876059039}
   TargetPoint: {fileID: 0}
   AttackRate: 2
   AttackRange: 1
-  skillRange: 1.5
+  SkillRange: 1.5
   AttackList: []
 --- !u!1 &7638733898330287950
 GameObject:
@@ -223,7 +224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7638733898330287945
 Transform:
   m_ObjectHideFlags: 0

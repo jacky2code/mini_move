@@ -2,7 +2,7 @@
 
 2D 平台跳跃类游戏，使用 unity 开发。
 
-![20220421110816](https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421110816.png)
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421110816.png" alt="20220421110816" align="center" style="width:500px" />
 
 ## Unit 1 Install & Assets
 
@@ -98,7 +98,7 @@
 
 - 调整 Player-Bomb 图片，按第一章节方式调整 32 像素
 
-  ![image-20220421110237218](https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421110250.png)
+  <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/21/20220421110250.png" style="width:500px"/>
 
 - 拖拽一张图片到场景中 命名为 Player，添加刚体和碰撞体
 
@@ -1058,3 +1058,12 @@ public class Whale : Enemy, IDamageable
 }
 ```
 
+
+
+## Unit 8 User Interface
+
+### Section 1 Create Canvas 创建画布
+
+UGUI 使用方法，添加 Player Health Bar 左上角对齐，并设置 Canvas 的自动缩放。
+
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/22/20220422093756.png" alt="image-20220422093500768" align="center" style="width:500px"/>
