@@ -1208,3 +1208,24 @@ public class Gamemanager : MonoBehaviour
 
 
 
+### Section 2 Way to the next room 通往下一关
+
+- 使用 Platform Effector 组件创建单项平台。
+- 创建 Door 入口和出口代码，实现消灭所有敌人后开门的动画，Player 进门触发范围跳转下一场景。
+- 观察者模式的使用。
+
+```  csharp
+/// <summary>
+/// 游戏结束后重新开始
+/// </summary>
+public void RestartGame()
+{
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+}
+
+public void NextLevel()
+{
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+}
+```
+

@@ -6,13 +6,14 @@
 /// </summary>
 public class Whale : Enemy, IDamageable
 {
-    public float Scale;
+    // 鲸鱼吃炸弹后的变大系数，必须大于1；
+    public float Scale = 1.2f;
     private Vector3 originalScale;
 
     public override void Init()
     {
         base.Init();
-        originalScale = transform.localScale;
+        //originalScale = transform.localScale;
     }
 
     public void GetHit(float damage)

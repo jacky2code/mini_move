@@ -160,7 +160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3628067926778482599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.23000026, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 3628067926466399925}
@@ -251,7 +251,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.17364466, y: -0.08259702}
+  m_Offset: {x: -0.17901993, y: -0.100985646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -262,7 +262,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2783861, y: 1.2884068}
+  m_Size: {x: 1.1957617, y: 1.2333229}
   m_EdgeRadius: 0
 --- !u!50 &3628067926778482584
 Rigidbody2D:
@@ -299,9 +299,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
   AnimState: 0
-  Health: 3
+  Health: 6
   IsDead: 0
   HasBomb: 0
+  IsBoss: 1
   Speed: 2
   PointA: {fileID: 3628067926637366491}
   PointB: {fileID: 3628067926830436195}
@@ -418,7 +419,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0151396, y: 0.3151946}
+  m_Offset: {x: -0.9668224, y: 0.3151946}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -429,7 +430,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.041216, y: 2.0875006}
+  m_Size: {x: 5.1378503, y: 2.0875006}
   m_EdgeRadius: 0
 --- !u!1 &3628067927029206738
 GameObject:

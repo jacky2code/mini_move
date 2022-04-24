@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
         Anim = GetComponent<Animator>();
         // 获取第一个子物体
         warningSign = transform.GetChild(0).gameObject;
+        GameManager.Instance.AddEnemyList(this);
     }
 
     private void Awake()
@@ -61,11 +62,11 @@ public class Enemy : MonoBehaviour
         Anim.SetBool("Dead", IsDead);
         if (IsBoss)
         {
-            UIManager.Instance.updateValueHealthBarBoss(Health);
+            UIManager.Instance.UpdateValueHealthBarBoss(Health);
         }
         if (IsDead)
         {
-            
+            GameManager.Instance.RemoveEnemyFromList(this);
             return;
         }
         currentState.OnUpdate(this);
@@ -163,7 +164,7 @@ public class Enemy : MonoBehaviour
         if (!AttackList.Contains(collision.transform)
             && !HasBomb
             && !IsDead
-            && !Gamemanager.Instance.IsGameOver)
+            && !GameManager.Instance.IsGameOver)
         {
             AttackList.Add(collision.transform);
         }
@@ -177,7 +178,7 @@ public class Enemy : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (!IsDead
-            && !Gamemanager.Instance.IsGameOver)
+            && !GameManager.Instance.IsGameOver)
         {
             StartCoroutine(OnSign());
         }

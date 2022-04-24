@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
     /// 更新 Boss 血条
     /// </summary>
     /// <param name="health"></param>
-    public void updateValueHealthBarBoss(float health)
+    public void UpdateValueHealthBarBoss(float health)
     {
         HealthBarBoss.value = health;
     }
@@ -112,14 +112,6 @@ public class UIManager : MonoBehaviour
     public void IsShowGameOverPanel(bool show)
     {
         PanelGameOver.SetActive(show);
-    }
-
-    /// <summary>
-    /// 游戏结束后重新开始
-    /// </summary>
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

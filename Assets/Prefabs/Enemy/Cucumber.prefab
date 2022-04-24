@@ -326,9 +326,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
   AnimState: 0
-  Health: 3
+  Health: 6
   IsDead: 0
   HasBomb: 0
+  IsBoss: 1
   Speed: 2
   PointA: {fileID: 5583106743151595067}
   PointB: {fileID: 5583106743778236756}
@@ -352,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5583106743534702408
 Transform:
   m_ObjectHideFlags: 0
