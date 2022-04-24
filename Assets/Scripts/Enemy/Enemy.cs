@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public float Health = 3;
     public bool IsDead = false;
     public bool HasBomb = false;
+    public bool IsBoss = false;
 
     [Header("Movement")]
     public float Speed = 2;
@@ -48,6 +49,10 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         TransitionToState(PatrolState);
+        if (IsBoss)
+        {
+            UIManager.Instance.SetMaxValueHealthBarBoss(Health);
+        }
     }
 
     
@@ -60,6 +65,11 @@ public class Enemy : MonoBehaviour
         }
         currentState.OnUpdate(this);
         Anim.SetInteger("State", AnimState);
+
+        if (IsBoss)
+        {
+            UIManager.Instance.updateValueHealthBarBoss(Health);
+        }
     }
 
     /// <summary>

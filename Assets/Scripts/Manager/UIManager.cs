@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
     public GameObject HealthBar;
+
+    public Slider HealthBarBoss;
 
     [Header("UI Elements")]
     public GameObject MenuPause;
@@ -81,4 +84,23 @@ public class UIManager : MonoBehaviour
         MenuPause.SetActive(false);
         Time.timeScale = 1;
     }
+
+    /// <summary>
+    /// 设置 Boss 血条最大值
+    /// </summary>
+    /// <param name="health"></param>
+    public void SetMaxValueHealthBarBoss(float health)
+    {
+        HealthBarBoss.maxValue = health;
+    }
+
+    /// <summary>
+    /// 更新 Boss 血条
+    /// </summary>
+    /// <param name="health"></param>
+    public void updateValueHealthBarBoss(float health)
+    {
+        HealthBarBoss.value = health;
+    }
+
 }

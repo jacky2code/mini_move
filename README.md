@@ -1104,3 +1104,63 @@ public class UIManager : MonoBehaviour
 创建暂停菜单，Button 组件添加方法，实现 暂停 / 恢复游戏
 
 <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/22/20220422131523.png" alt="image-20220422131438708" align="center" style="width:500px" />
+
+
+
+### Section 4 Boss Health Bar  Boss 血条
+
+手动创建简单 Slider 组件， Boss 血条实时更新
+
+Enemy.cs
+
+``` csharp
+void Start()
+{
+    TransitionToState(PatrolState);
+    if (IsBoss)
+    {
+        UIManager.Instance.SetMaxValueHealthBarBoss(Health);
+    }
+}
+
+public virtual void Update()
+{
+    Anim.SetBool("Dead", IsDead);
+    if (IsDead)
+    {
+        return;
+    }
+    currentState.OnUpdate(this);
+    Anim.SetInteger("State", AnimState);
+
+    if (IsBoss)
+    {
+        UIManager.Instance.updateValueHealthBarBoss(Health);
+    }
+}
+```
+
+UIManager.cs
+
+``` csharp
+public Slider HealthBarBoss;
+
+/// <summary>
+/// 设置 Boss 血条最大值
+/// </summary>
+/// <param name="health"></param>
+public void SetMaxValueHealthBarBoss(float health)
+{
+    HealthBarBoss.maxValue = health;
+}
+
+/// <summary>
+/// 更新 Boss 血条
+/// </summary>
+/// <param name="health"></param>
+public void updateValueHealthBarBoss(float health)
+{
+    HealthBarBoss.value = health;
+}
+```
+
