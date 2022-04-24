@@ -1164,3 +1164,13 @@ public void updateValueHealthBarBoss(float health)
 }
 ```
 
+
+
+## Unit 9 Game Manager
+
+### Section 1 Game Over 游戏结束画面
+
+创建 GameManager 脚本，生成单例，连接 Player 的状态，全局控制游戏的结束，添加 Gameover Panel 实现死亡弹出菜单重新开始游戏。
+
+
+

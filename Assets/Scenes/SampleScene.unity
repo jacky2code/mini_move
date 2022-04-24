@@ -468,6 +468,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3628067926778482585, guid: 6d3f9556935484223a5a3571f7982ecf,
+        type: 3}
+      propertyPath: Health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628067926778482585, guid: 6d3f9556935484223a5a3571f7982ecf,
+        type: 3}
+      propertyPath: IsBoss
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3628067926916976890, guid: 6d3f9556935484223a5a3571f7982ecf,
         type: 3}
       propertyPath: m_RootOrder
@@ -527,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Whale
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628067926916976891, guid: 6d3f9556935484223a5a3571f7982ecf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d3f9556935484223a5a3571f7982ecf, type: 3}
@@ -10596,12 +10611,12 @@ PrefabInstance:
     - target: {fileID: 2133184802952525364, guid: 60fa1efdd47e146dcbd3af386efb3cf9,
         type: 3}
       propertyPath: Health
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2133184802952525364, guid: 60fa1efdd47e146dcbd3af386efb3cf9,
         type: 3}
       propertyPath: IsBoss
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2133184803438493192, guid: 60fa1efdd47e146dcbd3af386efb3cf9,
         type: 3}
@@ -10611,7 +10626,7 @@ PrefabInstance:
     - target: {fileID: 2133184803438493192, guid: 60fa1efdd47e146dcbd3af386efb3cf9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2133184803438493195, guid: 60fa1efdd47e146dcbd3af386efb3cf9,
         type: 3}
@@ -10815,6 +10830,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5583106743439484789, guid: b8f2d2430b3af4b38b79828674ee2ffb,
+        type: 3}
+      propertyPath: Health
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583106743439484789, guid: b8f2d2430b3af4b38b79828674ee2ffb,
+        type: 3}
+      propertyPath: IsBoss
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5583106743534702408, guid: b8f2d2430b3af4b38b79828674ee2ffb,
         type: 3}
       propertyPath: m_RootOrder
@@ -10874,6 +10899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cucumber
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583106743534702415, guid: b8f2d2430b3af4b38b79828674ee2ffb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f2d2430b3af4b38b79828674ee2ffb, type: 3}

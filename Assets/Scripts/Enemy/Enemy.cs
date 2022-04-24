@@ -59,17 +59,19 @@ public class Enemy : MonoBehaviour
     public virtual void Update()
     {
         Anim.SetBool("Dead", IsDead);
+        if (IsBoss)
+        {
+            UIManager.Instance.updateValueHealthBarBoss(Health);
+        }
         if (IsDead)
         {
+            
             return;
         }
         currentState.OnUpdate(this);
         Anim.SetInteger("State", AnimState);
 
-        if (IsBoss)
-        {
-            UIManager.Instance.updateValueHealthBarBoss(Health);
-        }
+        
     }
 
     /// <summary>
@@ -93,8 +95,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void AttackAction()
     {
-        if (Vector2.Distance(transform.position, TargetPoint.position) < AttackRange
-            && (!TargetPoint.GetComponent<PlayerController>().IsDead))
+        if (Vector2.Distance(transform.position, TargetPoint.position) < AttackRange)
         {
             if (Time.time > nextAttack)
             {
@@ -111,8 +112,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     public virtual void SkillAction()
     {
-        if (Vector2.Distance(transform.position, TargetPoint.position) < SkillRange
-            && (!TargetPoint.GetComponent<PlayerController>().IsDead))
+        if (Vector2.Distance(transform.position, TargetPoint.position) < SkillRange)
         {
             if (Time.time > nextAttack)
             {
