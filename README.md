@@ -1170,7 +1170,41 @@ public void updateValueHealthBarBoss(float health)
 
 ### Section 1 Game Over 游戏结束画面
 
-创建 GameManager 脚本，生成单例，连接 Player 的状态，全局控制游戏的结束，添加 Gameover Panel 实现死亡弹出菜单重新开始游戏。
+创建 GameManager.cs，生成单例，连接 Player 的状态，全局控制游戏的结束，添加 Gameover Panel 实现死亡弹出菜单重新开始游戏。
+
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/24/20220424111325.png" align="center" style="width:500px" />
+
+``` csharp
+using UnityEngine;
+
+public class Gamemanager : MonoBehaviour
+{
+    public static Gamemanager Instance;
+
+    public bool IsGameOver;
+
+    private PlayerController playerCtrl;
+
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        playerCtrl = FindObjectOfType<PlayerController>();
+    }
+
+    public void Update()
+    {
+        IsGameOver = playerCtrl.IsDead;
+        UIManager.Instance.IsShowGameOverPanel(IsGameOver);
+    }
+}
+```
 
 
 

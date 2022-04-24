@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public GameObject HealthBar;
+    public GameObject HealthBarPlayer;
 
     public Slider HealthBarBoss;
 
     [Header("UI Elements")]
-    public GameObject MenuPause;
+    public GameObject PanelMenuPause;
+    public GameObject PanelGameOver;
 
     public void Awake()
     {
@@ -36,37 +38,37 @@ public class UIManager : MonoBehaviour
         {
             case 3:
                 {
-                    HealthBar.transform.GetChild(0).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(1).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(2).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(0).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(1).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 break;
             case 2:
                 {
-                    HealthBar.transform.GetChild(0).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(1).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(2).gameObject.SetActive(false);
+                    HealthBarPlayer.transform.GetChild(0).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(1).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(2).gameObject.SetActive(false);
                 }
                 break;
             case 1:
                 {
-                    HealthBar.transform.GetChild(0).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(1).gameObject.SetActive(false);
-                    HealthBar.transform.GetChild(2).gameObject.SetActive(false);
+                    HealthBarPlayer.transform.GetChild(0).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(1).gameObject.SetActive(false);
+                    HealthBarPlayer.transform.GetChild(2).gameObject.SetActive(false);
                 }
                 break;
             case 0:
                 {
-                    HealthBar.transform.GetChild(0).gameObject.SetActive(false);
-                    HealthBar.transform.GetChild(1).gameObject.SetActive(false);
-                    HealthBar.transform.GetChild(2).gameObject.SetActive(false);
+                    HealthBarPlayer.transform.GetChild(0).gameObject.SetActive(false);
+                    HealthBarPlayer.transform.GetChild(1).gameObject.SetActive(false);
+                    HealthBarPlayer.transform.GetChild(2).gameObject.SetActive(false);
                 }
                 break;
             default:
                 {
-                    HealthBar.transform.GetChild(0).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(1).gameObject.SetActive(true);
-                    HealthBar.transform.GetChild(2).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(0).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(1).gameObject.SetActive(true);
+                    HealthBarPlayer.transform.GetChild(2).gameObject.SetActive(true);
                 }
                 break;
         }
@@ -74,14 +76,14 @@ public class UIManager : MonoBehaviour
 
     public void GamePause()
     {
-        MenuPause.SetActive(true);
+        PanelMenuPause.SetActive(true);
         // 游戏暂停
         Time.timeScale = 0;
     }
 
     public void GameResume()
     {
-        MenuPause.SetActive(false);
+        PanelMenuPause.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -101,6 +103,23 @@ public class UIManager : MonoBehaviour
     public void updateValueHealthBarBoss(float health)
     {
         HealthBarBoss.value = health;
+    }
+
+    /// <summary>
+    /// 显示/隐藏 GameOverPanel
+    /// </summary>
+    /// <param name="show"></param>
+    public void IsShowGameOverPanel(bool show)
+    {
+        PanelGameOver.SetActive(show);
+    }
+
+    /// <summary>
+    /// 游戏结束后重新开始
+    /// </summary>
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
