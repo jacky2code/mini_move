@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
+        Health = GameManager.Instance.LoadPlayerHealth();
+        // 获取数据后立马更新UI
+        UIManager.Instance.UpdateHealth(Health);
     }
 
     void Update()
@@ -188,6 +191,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             Anim.SetTrigger("Hit");
 
             UIManager.Instance.UpdateHealth(Health);
+            GameManager.Instance.SaveData();
         }
         
     }

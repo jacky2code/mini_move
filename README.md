@@ -1229,3 +1229,33 @@ public void NextLevel()
 }
 ```
 
+
+
+### Section 3 Save Data 保存数据
+
+使用 PlayerPrefs，保存 Player 的血量延续到下一关，在过关时保存数据。
+
+``` csharp
+private string playerHealthKey = "PlayerHealth";
+/// <summary>
+/// 读取保存的血量
+/// </summary>
+/// <returns></returns>
+public float LoadPlayerHealth()
+{
+    if (!PlayerPrefs.HasKey(playerHealthKey))
+    {
+        PlayerPrefs.SetFloat(playerHealthKey, 3.0f);
+    }
+    float currentHealth = PlayerPrefs.GetFloat(playerHealthKey);
+    
+    return currentHealth;
+}
+
+public void SaveData()
+{
+    PlayerPrefs.SetFloat(playerHealthKey, playerCtrl.Health);
+    PlayerPrefs.Save();
+}
+```
+

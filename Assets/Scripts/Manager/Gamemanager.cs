@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -16,8 +17,10 @@ public class GameManager : MonoBehaviour
 
     private Door doorExit;
 
+    private string playerHealthKey = "PlayerHealth";
+
     public void Awake()
-    {
+    {   
         if (Instance == null)
         {
             Instance = this;
@@ -57,10 +60,40 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerPrefs.DeleteKey(playerHealthKey);
     }
 
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    /// <summary>
+    /// 退出游戏，build后才可以调用
+    /// </summary>
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    /// <summary>
+    /// 读取保存的血量
+    /// </summary>
+    /// <returns></returns>
+    public float LoadPlayerHealth()
+    {
+        if (!PlayerPrefs.HasKey(playerHealthKey))
+        {
+            PlayerPrefs.SetFloat(playerHealthKey, 3.0f);
+        }
+        float currentHealth = PlayerPrefs.GetFloat(playerHealthKey);
+        
+        return currentHealth;
+    }
+
+    public void SaveData()
+    {
+        PlayerPrefs.SetFloat(playerHealthKey, playerCtrl.Health);
+        PlayerPrefs.Save();
     }
 }
