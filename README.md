@@ -1259,3 +1259,14 @@ public void SaveData()
 }
 ```
 
+
+
+### Section 4 Fix bugs 调整bugs
+
+- 调整一些代码顺序，更改观察者模式的代码设计方法。
+
+- 创建 Main Menu
+
+  <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/25/20220425115116.png" align="center" style="width:500px" />
+
+  

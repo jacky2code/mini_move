@@ -28,10 +28,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-        playerCtrl = FindObjectOfType<PlayerController>();
-
-        doorExit = FindObjectOfType<Door>();
+        }        
     }
 
     public void Update()
@@ -40,18 +37,28 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.IsShowGameOverPanel(IsGameOver);
     }
 
-    public void AddEnemyList(Enemy enemy)
+    public void IsEnemy(Enemy enemy)
     {
         ListEnemy.Add(enemy);
     }
 
-    public void RemoveEnemyFromList(Enemy enemy)
+    public void EnemyDead(Enemy enemy)
     {
         ListEnemy.Remove(enemy);
         if (ListEnemy.Count == 0)
         {
             doorExit.OpenDoor();
         }
+    }
+
+    public void IsPlayer(PlayerController controller)
+    {
+        playerCtrl = controller;
+    }
+
+    public void IsDoor(Door door)
+    {
+        doorExit = door;
     }
 
     /// <summary>

@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
         anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
         coll.enabled = false;
+        GameManager.Instance.IsDoor(this);
     }
 
     public void OpenDoor()

@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
         Anim = GetComponent<Animator>();
         // 获取第一个子物体
         warningSign = transform.GetChild(0).gameObject;
-        GameManager.Instance.AddEnemyList(this);
     }
 
     private void Awake()
@@ -49,6 +48,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        GameManager.Instance.IsEnemy(this);
         TransitionToState(PatrolState);
         if (IsBoss)
         {
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
         if (IsDead)
         {
-            GameManager.Instance.RemoveEnemyFromList(this);
+            GameManager.Instance.EnemyDead(this);
             return;
         }
         currentState.OnUpdate(this);

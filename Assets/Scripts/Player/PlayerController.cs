@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         Health = GameManager.Instance.LoadPlayerHealth();
         // 获取数据后立马更新UI
         UIManager.Instance.UpdateHealth(Health);
+        GameManager.Instance.IsPlayer(this);
     }
 
     void Update()
