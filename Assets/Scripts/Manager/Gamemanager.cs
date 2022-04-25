@@ -75,6 +75,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void NewGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ContinueGame()
+    {
+
+    }
+
     /// <summary>
     /// 退出游戏，build后才可以调用
     /// </summary>
