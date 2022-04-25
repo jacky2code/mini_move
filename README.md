@@ -1270,3 +1270,8 @@ public void SaveData()
   <img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/25/20220425115116.png" align="center" style="width:500px" />
 
   
+
+### Section 5 Load Game 加载游戏进度
+
+实现保存游戏场景，让玩家可以延续之前的游戏进度。Main Menu 各种 Button 的函数方法实现。
+

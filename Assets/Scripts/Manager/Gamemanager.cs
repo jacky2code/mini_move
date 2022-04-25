@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private Door doorExit;
 
     private string playerHealthKey = "PlayerHealth";
+    private string sceneIndex = "SceneIndex";
 
     public void Awake()
     {   
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         if (ListEnemy.Count == 0)
         {
             doorExit.OpenDoor();
+            GameManager.Instance.SaveData();
         }
     }
 
@@ -77,12 +79,25 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(1);
     }
 
     public void ContinueGame()
     {
+        if(PlayerPrefs.HasKey(sceneIndex))
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetInt(sceneIndex));
+        }
+        else
+        {
+            NewGame();
+        }        
+    }
 
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     /// <summary>
@@ -111,6 +126,9 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         PlayerPrefs.SetFloat(playerHealthKey, playerCtrl.Health);
+        PlayerPrefs.SetInt(sceneIndex, SceneManager.GetActiveScene().buildIndex + 1);
         PlayerPrefs.Save();
     }
+
+    
 }
