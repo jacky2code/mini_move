@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float Speed;
     // 跳跃力
     public float JumpForce;
-    public Animator Anim;
+    
 
     [Header("Ground Check")]
     // 检测点
@@ -39,14 +39,15 @@ public class PlayerController : MonoBehaviour, IDamageable
     public float AttackRate = 2;
 
     private Rigidbody2D rb;
-
     private bool isHurt;
-
+    private Animator animatorPlayer;
+    private FixedJoystick joystick;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Anim = GetComponent<Animator>();
+        animatorPlayer = GetComponent<Animator>();
+        joystick = FindObjectOfType<FixedJoystick>();
         Health = GameManager.Instance.LoadPlayerHealth();
         // 获取数据后立马更新UI
         UIManager.Instance.UpdateHealth(Health);
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     void Update()
     {
-        Anim.SetBool("Dead", IsDead);
+        animatorPlayer.SetBool("Dead", IsDead);
         if (IsDead)
         {
             //gameObject.SetActive(false);
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             return;
         }
         // 判断是否正在播放受伤动画
-        isHurt = Anim.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit");
+        isHurt = animatorPlayer.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit");
         CheckInput();
     }
 
@@ -103,16 +104,35 @@ public class PlayerController : MonoBehaviour, IDamageable
     /// </summary>
     void Movement()
     {
+
         // 获取键盘输入
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        //float horizontalInput = Input.GetAxisRaw("Horizontal");
+
+        // 操纵杆
+        float horizontalInput = joystick.Horizontal;
+
+
+
+
+
+
         // 左右移动
         rb.velocity = new Vector2(horizontalInput * Speed, rb.velocity.y);
 
         // player 左右翻转
-        if(horizontalInput != 0)
+        //if(horizontalInput != 0)
+        //{
+        //    // 通过控制 x 左右翻转
+        //    transform.localScale = new Vector3(horizontalInput, 1, 1);
+        //}
+
+        if (horizontalInput > 0)
         {
-            // 通过控制 x 左右翻转
-            transform.localScale = new Vector3(horizontalInput, 1, 1);
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (horizontalInput < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -131,6 +151,11 @@ public class PlayerController : MonoBehaviour, IDamageable
             rb.gravityScale = 4;
             CanJump = false;
         }
+    }
+
+    public void ButtonJump()
+    {
+        CanJump = true;
     }
 
     public void Attack()
@@ -181,7 +206,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     public void GetHit(float damage)
     {
         // 受伤短暂无敌
-        if (!Anim.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit") && !IsDead)
+        if (!animatorPlayer.GetCurrentAnimatorStateInfo(1).IsName("Player_Hit") && !IsDead)
         {
             Health = Health - damage;
             if (Health < 1)
@@ -189,7 +214,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 Health = 0;
                 IsDead = true;
             }
-            Anim.SetTrigger("Hit");
+            animatorPlayer.SetTrigger("Hit");
 
             UIManager.Instance.UpdateHealth(Health);
             GameManager.Instance.SaveData();

@@ -1275,3 +1275,58 @@ public void SaveData()
 
 实现保存游戏场景，让玩家可以延续之前的游戏进度。Main Menu 各种 Button 的函数方法实现。
 
+
+
+## Unit 10 Build for Mobile & Monetization
+
+### section 1 Mobile Platform Control 移动平台控制方法
+
+下载使用 Asset Store 中 Joystick 插件， 创建屏幕横向控制器，创建按钮实现跳跃和攻击时放炸弹。重新调整代码配合 Button 的 On Click Event。
+
+- Unity2020开始取消了内置的Asset Store 请访问网页版商城并将需要的插件添加到你的账号中
+  - Joysick https://assetstore.unity.com/packages/tools/input-management/joystick-pack-107631
+- Unity 打开 Package Manager 选择 My Assets 就能看到自己购买的插件下载安装
+
+``` csharp
+/// <summary>
+/// 移动
+/// </summary>
+void Movement()
+{
+    // 获取键盘输入
+    //float horizontalInput = Input.GetAxisRaw("Horizontal");
+    // 操纵杆
+    float horizontalInput = joystick.Horizontal;
+    // 左右移动
+    rb.velocity = new Vector2(horizontalInput * Speed, rb.velocity.y);
+
+    // player 左右翻转
+    //if(horizontalInput != 0)
+    //{
+    //    // 通过控制 x 左右翻转
+    //    transform.localScale = new Vector3(horizontalInput, 1, 1);
+    //}
+
+    if (horizontalInput > 0)
+    {
+        transform.eulerAngles = new Vector3(0, 0, 0);
+    }
+    if (horizontalInput < 0)
+    {
+        transform.eulerAngles = new Vector3(0, 180, 0);
+    }
+}
+```
+
+<img src="https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/04/26/20220426105843.png" style="width:500px" />
+
+
+
+
+
+
+
+
+
+
+
