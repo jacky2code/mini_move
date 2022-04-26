@@ -1322,7 +1322,9 @@ void Movement()
 
 
 
+### Section 2 Build and Run 生成并运行
 
+生成 Android 和 iOS 平台，真机测试。
 
 
 

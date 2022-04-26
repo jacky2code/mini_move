@@ -8300,11 +8300,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 331316989962359699, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 501881292, guid: 9e7aac41e33f04b4697bbc4d95ecce19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4387690028213785734}
+    - target: {fileID: 1801188098, guid: 9e7aac41e33f04b4697bbc4d95ecce19, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4387690028213785734}
     - target: {fileID: 331316990015232628, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
         type: 3}
       propertyPath: m_Name
@@ -8435,12 +8438,27 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661679968}
-    - target: {fileID: 331316991487159951, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
+    - target: {fileID: 331316991247405998, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
         type: 3}
-      propertyPath: m_AnchorMax.y
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 331316991540825362, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 819943407}
+    - target: {fileID: 7847274604415995724, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 819943407}
+    - target: {fileID: 7847274604459053407, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 819943407}
+    - target: {fileID: 7847274605381111544, guid: 9e7aac41e33f04b4697bbc4d95ecce19,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9094,6 +9112,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a330d0620dd74976917499f2fbffbaf, type: 3}
+--- !u!114 &4387690028213785734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4387690026763806708, guid: 9a330d0620dd74976917499f2fbffbaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4387690028213785733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12515dd7997704e42bda7dacb49ec7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5583106744692594036
 PrefabInstance:
   m_ObjectHideFlags: 0
