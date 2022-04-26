@@ -111,11 +111,6 @@ public class PlayerController : MonoBehaviour, IDamageable
         // 操纵杆
         float horizontalInput = joystick.Horizontal;
 
-
-
-
-
-
         // 左右移动
         rb.velocity = new Vector2(horizontalInput * Speed, rb.velocity.y);
 
@@ -153,9 +148,15 @@ public class PlayerController : MonoBehaviour, IDamageable
         }
     }
 
+    /// <summary>
+    /// 按钮跳跃
+    /// </summary>
     public void ButtonJump()
     {
-        CanJump = true;
+        if (IsGround)
+        {
+            CanJump = true;
+        }        
     }
 
     public void Attack()
